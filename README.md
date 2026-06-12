@@ -55,45 +55,6 @@ Each batch includes:
 - 2,200 Raman spectroscopy channels (205-2400 cm-1)
 - Offline assay measurements (penicillin, substrate, biomass)
 
----
-
-## Project Structure
-
-```
-pharma-process-monitoring/
-|
-|-- main.py                  # MSPC pipeline (process sensor monitoring)
-|-- raman_soft_sensor.py     # Raman soft sensor pipeline
-|-- requirements.txt
-|-- README.md
-|
-|-- outputs/
-    |-- batch_summary.csv        # MSPC alarm rates per batch
-    |-- soft_sensor_metrics.csv  # PLS model performance metrics
-    |
-    |-- figures/
-        |-- 00_dashboard.png             # MSPC summary dashboard
-        |-- 01_batch_trajectories.png    # Process variable trajectories
-        |-- 02_pca_overview.png          # PCA scree plot and loadings
-        |-- 03_pca_scores.png            # PC score plot (normal vs fault)
-        |-- 04_monitoring_charts.png     # T2 and SPE control charts
-        |-- 05_contribution_plot.png     # Fault diagnosis contributions
-        |-- 06_detection_performance.png # Alarm rates and ROC curve
-        |
-        |-- raman/
-            |-- R0_dashboard.png               # Soft sensor summary dashboard
-            |-- R1_spectral_preprocessing.png  # Raw vs preprocessed spectra
-            |-- R2_normal_vs_fault_spectra.png # Mean spectra comparison
-            |-- R3_spectral_pca.png            # PCA of Raman data
-            |-- R4_predicted_vs_actual.png     # Predicted vs actual (CV)
-            |-- R5_realtime_normal_batch.png   # Real-time tracking, normal
-            |-- R6_realtime_fault_batch.png    # Real-time tracking, fault
-            |-- R7_vip_scores.png              # VIP spectral importance
-            |-- R8_fault_prediction_error.png  # Prediction error, fault batches
-```
-
----
-
 ## Methods
 
 ### Part 1 — Multivariate Statistical Process Control (MSPC)
@@ -177,52 +138,6 @@ changes. This connects spectroscopic monitoring to process fault detection.
 
 ---
 
-## Setup and Usage
-
-Install dependencies:
-
-    pip install -r requirements.txt
-
-Prepare data (run extraction script on the downloaded IndPenSim CSV):
-
-    python extract_data.py --path "C:/path/to/indpensim/"
-
-Run MSPC pipeline:
-
-    python main.py
-
-Run Raman soft sensor:
-
-    python raman_soft_sensor.py
-
-All outputs and figures are saved to outputs/ automatically.
-
----
-
-## Regulatory Context
-
-This project implements methods directly referenced in FDA regulatory
-science guidance documents:
-
-FDA PAT Guidance (2004)
-    MSPC is listed as a primary PAT tool for process monitoring.
-    Raman spectroscopy is listed as a PAT analytical instrument.
-
-ICH Q8(R2) — Pharmaceutical Development
-    Real-time release testing using soft sensors as an alternative
-    to end-product testing.
-
-ICH Q10 — Pharmaceutical Quality System
-    Continuous process verification using in-line and on-line sensors.
-
-ICH Q2(R1) — Validation of Analytical Procedures
-    Validation strategy for PLS calibration models.
-
-The combination of MSPC and a Raman soft sensor represents a complete
-PAT implementation as envisioned by FDA's Office of Pharmaceutical Quality.
-
----
-
 ## Key Findings
 
 1. MSPC detects 90% of known fault batches at a 10.3% false alarm
@@ -244,26 +159,26 @@ PAT implementation as envisioned by FDA's Office of Pharmaceutical Quality.
 
 ## References
 
-Goldrick S. et al. (2019). Modern day monitoring and control challenges
+1. Goldrick S. et al. (2019). Modern day monitoring and control challenges
 outlined on an industrial-scale benchmark fermentation process.
 Computers & Chemical Engineering, 130, 106471.
 
-Kourti T. & MacGregor J.F. (1995). Process analysis, monitoring and
+2. Kourti T. & MacGregor J.F. (1995). Process analysis, monitoring and
 diagnosis using multivariate projection methods. Chemometrics and
 Intelligent Laboratory Systems, 28(1), 3-21.
 
-Jackson J.E. & Mudholkar G.S. (1979). Control procedures for residuals
+3. Jackson J.E. & Mudholkar G.S. (1979). Control procedures for residuals
 associated with principal component analysis. Technometrics, 21(3), 341-349.
 
-Wold S. et al. (2001). PLS-regression: a basic tool of chemometrics.
+4. Wold S. et al. (2001). PLS-regression: a basic tool of chemometrics.
 Chemometrics and Intelligent Laboratory Systems, 58(2), 109-130.
 
-FDA Guidance for Industry: PAT (2004).
+5. FDA Guidance for Industry: PAT (2004).
 https://www.fda.gov/media/71012/download
 
 ---
 
 ## Author
 
-Md Junayed
+Md Junayed Nayeen, Ph.D.
 Master of Data Science, University of Pittsburgh

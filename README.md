@@ -3,7 +3,7 @@
 A Python implementation of two complementary Process Analytical Technology (PAT)
 tools applied to an industrial-scale penicillin fermentation benchmark:
 
-1. **Multivariate Statistical Process Control (MSPC)** — real-time fault detection
+1. **Multivariate Statistical Process Control (MSPC)** real-time fault detection
    from process sensor data using PCA-based control charts
 2. **Raman Soft Sensor** — real-time prediction of penicillin and substrate
    concentrations directly from Raman spectroscopy, eliminating the need
@@ -20,7 +20,7 @@ penicillin fed-batch fermentation process.
 Pharmaceutical manufacturing requires continuous monitoring of critical
 process parameters (CPPs) and critical quality attributes (CQAs) to ensure
 product safety and consistency. Traditional quality control relies on
-offline laboratory testing — a slow, destructive process that cannot
+offline laboratory testing a slow, destructive process that cannot
 catch problems in real time.
 
 **Process Analytical Technology (PAT)**, as defined in FDA's PAT Guidance
@@ -35,7 +35,7 @@ most important PAT methods recognised by FDA:
 
 ## Dataset
 
-**IndPenSim** — Industrial Penicillin Simulation Dataset
+**IndPenSim** Industrial Penicillin Simulation Dataset
 Goldrick S., Duran-Villalobos C., Jankauskas K., Lovett D., Farid S.,
 Lennox B. (2019). Modern day monitoring and control challenges outlined
 on an industrial-scale benchmark fermentation process.
@@ -57,7 +57,7 @@ Each batch includes:
 
 ## Methods
 
-### Part 1 — Multivariate Statistical Process Control (MSPC)
+### Part 1: Multivariate Statistical Process Control (MSPC)
 
 #### PCA Process Model
 A PCA model is trained on 30 normal batches (34,500 observations,
@@ -102,7 +102,7 @@ against the interpretable MSPC approach.
 
 ---
 
-### Part 2 — Raman Soft Sensor
+### Part 2: Raman Soft Sensor
 
 #### Spectral Preprocessing Pipeline
 1. Savitzky-Golay smoothing (window=15, poly=3) — reduces instrument noise

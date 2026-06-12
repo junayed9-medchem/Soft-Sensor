@@ -44,7 +44,7 @@ on an industrial-scale benchmark fermentation process.
 Available at: https://data.mendeley.com/datasets/pdnjz7zz5x/1
 
 The dataset contains 100 batches from a 100,000 L penicillin bioreactor:
-- Batches 1-30   : Recipe-driven control (normal — used for training)
+- Batches 1-30   : Recipe-driven control (normal; used for training)
 - Batches 31-60  : Operator-controlled (normal)
 - Batches 61-90  : Advanced Process Control using Raman spectroscopy
 - Batches 91-100 : Known process faults (used for fault detection testing)
@@ -66,7 +66,7 @@ structure of the process. 8 principal components explain 83.5%
 of the total variance.
 
 #### Hotelling T-squared Statistic
-Measures deviation within the PCA model space — detects shifts
+Measures deviation within the PCA model space; detects shifts
 in the normal process correlation structure.
 
     T2 = sum( t_a^2 / lambda_a )  for a = 1 to A
@@ -74,7 +74,7 @@ in the normal process correlation structure.
 Control limit based on the F-distribution (Kourti & MacGregor, 1995).
 
 #### SPE / Q Statistic
-Measures deviation outside the model (residuals) — detects novel
+Measures deviation outside the model (residuals); detects novel
 fault patterns not captured during normal training.
 
     SPE = sum( e_j^2 )  for j = 1 to p
@@ -105,9 +105,9 @@ against the interpretable MSPC approach.
 ### Part 2: Raman Soft Sensor
 
 #### Spectral Preprocessing Pipeline
-1. Savitzky-Golay smoothing (window=15, poly=3) — reduces instrument noise
-2. Standard Normal Variate (SNV) — removes multiplicative scatter effects
-3. First derivative (SG) — removes additive baseline drift
+1. Savitzky-Golay smoothing (window=15, poly=3) to reduce instrument noise
+2. Standard Normal Variate (SNV) to remove multiplicative scatter effects
+3. First derivative (SG) to remove additive baseline drift
 
 #### PLS Regression
 Partial Least Squares regression maps Raman spectra to analyte
@@ -121,7 +121,7 @@ corresponds to known chemical absorption bands.
 
 #### Cross-Validation Strategy
 5-fold grouped cross-validation ensures complete batches appear in
-either training or validation — never split across folds. This gives
+either training or validation never split across folds. This gives
 a realistic estimate of generalisation to a new batch.
 
 #### Soft Sensor Results
@@ -148,7 +148,7 @@ changes. This connects spectroscopic monitoring to process fault detection.
    cross-validated framework.
 
 3. Fault batches produce measurable Raman spectral changes, causing
-   prediction error to increase after fault onset — connecting
+   prediction error to increase after fault onset connecting
    spectroscopic monitoring to fault detection.
 
 4. PCA contribution plots correctly identify the most affected process
